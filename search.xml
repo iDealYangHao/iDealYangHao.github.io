@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>File Compression</title>
+    <url>/2020/07/06/File-Compression/</url>
+    <content><![CDATA[<blockquote>
+<p>由于项目需要，我要将一个项目打包成deb文件，这是一种Linux下的安装包，deb包里有两个压缩文件，格式是<code>.tar.xz</code>,这是经过双重压缩的文件，本文主要讲压缩方法，附带讲Qt调用Terminal。</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="Qt调用Terminal"><a href="#Qt调用Terminal" class="headerlink" title="Qt调用Terminal"></a>Qt调用Terminal</h1><p>Qt中有个类：QProcess，很明显它是一个进程类，事实上Qt是新开了一个进程来进行bash操作，用法如下：</p>
+<ul>
+<li>运行一条命令</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">QProcess p;</span><br><span class="line">p.execute(<span class="string">"ls -al"</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行很多条命令，即shell脚本</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">QProcess p;</span><br><span class="line">p.execute(<span class="string">"bash"</span>,QStringList()&lt;&lt;<span class="string">"-c"</span>&lt;&lt;<span class="string">"/xxx/xxx.sh"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>备注：p.execute和p.start的区别不在此赘述</p>
+<h1 id="command-line压缩文件"><a href="#command-line压缩文件" class="headerlink" title="command line压缩文件"></a>command line压缩文件</h1><ol>
+<li><p>先说压缩命令的格式: tar  -[参数]  xx.tar /xxx/xxx/xxx.txt</p>
+<ol>
+<li>tar是Ｌinux／Ｕnix下的一个命令，可以用 man tar　查看</li>
+<li>参数是有很多的,常用的有x c v f等,x代表解压,c代表创建新压缩包,f表示文件名,v表示显示详细过程</li>
+<li>xx.tar表示你要压缩成什么名字</li>
+<li>/xxx/xxx/xxx.txt代表你想压缩的东西，可以是文件，也可以是文件夹</li>
+<li>示例：ar -vcf yanghao.tar /home/yanghao/Desktop/test</li>
+<li>两个注意点：<ol>
+<li>f参数是必须的，且放在参数的最后一位</li>
+<li>如果你的压缩名字指定了路径：/home/yanghao/yh.tar 那这个包再被解压的时候，就包含了/home/yanghao这个路径．所以建议在当前路径压缩</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>然后xz yanghao.tar,就得到了 yanghao.tar.xz</p>
+</li>
+<li><p>解压：tar -xf yanghao.tar.xz就直接解压了两层；</p>
+<p>如果你只想解压到tar这一层，那可以用xz -d yangaho.tar.xz，就生成了yanghao.tar</p>
+</li>
+<li><p>其他压缩命令，待续…</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Qt</category>
+      </categories>
+      <tags>
+        <tag>Qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git</title>
+    <url>/2020/07/01/Git/</url>
+    <content><![CDATA[<h2 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h2><p>​        假设一个项目有两个分支，一个是master，一个是dev，你在dev分支上正在开发一个新功能，但是这时候，有人已经在master分支上又有了新的提交，于是你的dev就落后了master一个commit，当你想把dev代码合到master时，需要这样做：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git pull origin master --rebase</span><br><span class="line">git push --force</span><br></pre></td></tr></table></figure>
+
+<p><strong>git commit –amend</strong></p>
+]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How is my blog set up?</title>
+    <url>/2020/06/02/How-is-my-blog-set-up/</url>
+    <content><![CDATA[<h1 id="源码与静态网页分离"><a href="#源码与静态网页分离" class="headerlink" title="源码与静态网页分离"></a>源码与静态网页分离</h1><p>​    我采用的是<a href="https://ci.appveyor.com/login" target="_blank" rel="noopener">appveyor</a>,使用github登陆，教程如下：</p>
+<h1 id="Some-Tips"><a href="#Some-Tips" class="headerlink" title="Some Tips"></a>Some Tips</h1><p>1.Open Typora directly.Click <a href="https://www.dazhuanlan.com/2020/03/06/5e617a0666d9a/" target="_blank" rel="noopener">here</a> to look over the tutorial</p>
+]]></content>
+      <tags>
+        <tag>Tutorial</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenCV &amp; Qt On MacOS</title>
+    <url>/2020/06/20/OpenCV-Qt-On-MacOS/</url>
+    <content><![CDATA[<blockquote>
+<p>初衷来源于我的毕业设计。当时导师要求做一个图像压缩算法的项目，要求有程序展示效果，但是我当时不会Qt，MFC也不会，就没法做一个可交互的界面了，强行用控制台交互…</p>
+<p>现在正在从事于Qt开发，主要是用Qt开发UOS的桌面部件，但是我还是很喜欢OpenCV的，所以想把二者结合起来。为什么基于macOS，不谈。</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="一、安装Qt和OpenCV"><a href="#一、安装Qt和OpenCV" class="headerlink" title="一、安装Qt和OpenCV"></a>一、安装Qt和OpenCV</h1><p>​        网上都有教程，我假设你已经装好了，如果不会，请自行Google。值得一提的是OpenCV记得用<code>brew install opencv</code>来安装，具体原因未知（道听途说：手动编译的OpenCV就是添加不了动态库）。什么？不知道brew！？继续Google…</p>
+<h1 id="二、添加链接库"><a href="#二、添加链接库" class="headerlink" title="二、添加链接库"></a>二、添加链接库</h1><p>​        我们是在Qt Creator上开发的，你问我为什么不用Xcode？不好意思，我不会配置Qt跑在Xcode上，只会配置OpenCV的，所以我选择在Qt Creator上开发，添加OpenCV的库就行了。</p>
+<p>​        在<code>.pro</code>文件中添加相关语句就行了。什么.pro?请关上电脑…主要有以下两个重点，只要添加好了，就可以成功运行你的Qt &amp; OpenCv程序了。</p>
+<h2 id="1-添加头文件路径"><a href="#1-添加头文件路径" class="headerlink" title="1.添加头文件路径"></a>1.添加头文件路径</h2><p><code>INCLUDEPATH  += /usr/local/Cellar/opencv/4.3.0_3/include</code></p>
+<p>​        请你别照抄，分析一下语句好吗？这个是你brew安装的Qt的路径，我们要添加include文件的里面的内容，这样就可以<code>#include &lt;opencv2/opencv.hpp&gt;</code>了。如果你是用brew安装的，那这个路径基本就是这样，找不到usr文件？请关机…这个地方有个大坑，路径原本应该是这样的<code>/4.3.0_3/opencv4/include</code>,但是我建议你删掉<code>opencv4</code>这一层目录，免得后面会报错（反正我处理不好..）。重中之重是include路径，不管你怎么安装的，只要找到了OpenCV的indlude就行了。</p>
+<h2 id="2-添加链接库"><a href="#2-添加链接库" class="headerlink" title="2.添加链接库"></a>2.添加链接库</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">LIBS += -L/usr/local/Cellar/opencv/<span class="number">4.3</span>.<span class="number">0</span>_3/lib \</span><br><span class="line">    -lopencv_core \</span><br><span class="line">    -lopencv_highgui \</span><br><span class="line">    -lopencv_imgproc \</span><br><span class="line">    -lopencv_imgcodecs \</span><br><span class="line">    -lnumeric \</span><br><span class="line">    -lopencv_features2d \</span><br></pre></td></tr></table></figure>
+
+<p>​        这个要注意 \ 前面是有空格的，另外路径，也请去找自己的路径，不要抄我的！<code>-L</code>和<code>-l</code>后面没有空格，<code>opencv_模块名</code>是一个个的链接库，不要加后缀，也不要加lib的前缀，为什么？我不知道…下面给一张图，再次强调一下inclue和lib。</p>
+<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/%E6%88%AA%E5%B1%8F2020-06-20%20%E4%B8%8B%E5%8D%889.47.47.png" alt="截屏2020-06-20 下午9.47.47"></p>
+<p>​        最后给出一个源码，我也觉得各位一定迫不及待的地想要试试配置成功了没有，<a href="https://github.com/iDealYangHao/Qt-OpenCV" target="_blank" rel="noopener">拿去吧</a>!最后一句，一定要修改源码里面和你有关的部分…!</p>
+]]></content>
+      <categories>
+        <category>Qt</category>
+        <category>OpenCV</category>
+      </categories>
+      <tags>
+        <tag>Qt</tag>
+        <tag>OpenCV</tag>
+        <tag>macOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VS code with C/C++</title>
+    <url>/2020/07/05/VS-code-with-C-C/</url>
+    <content><![CDATA[<blockquote>
+<p>VS code是一个跨平台的文本编辑器，当你给它加上各种插件后，它就会变成各种编译器，在各种平台，编译各种语言。本文就介绍C/C++在Win 10和macOS下的配置</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="VS-code-with-Win-10"><a href="#VS-code-with-Win-10" class="headerlink" title="VS code with Win 10"></a>VS code with Win 10</h1><p>首先声明，MinGW是<a href="http://www.mingw.org" target="_blank" rel="noopener">Minimalist GNU for Windows</a>, VS code只是一个文本编辑器，它不能编译程序，当它加上MinGW后，就成为了IDE。以下分两步走：</p>
+<h2 id="1-安装MinGW"><a href="#1-安装MinGW" class="headerlink" title="1.安装MinGW"></a>1.安装MinGW</h2><p>这里有个详细教程：<a href="https://zhuanlan.zhihu.com/p/66197013" target="_blank" rel="noopener">知乎链接</a>。简单来说就是：</p>
+<ul>
+<li>下载mingw-get-setup.exe，选择一个安装路径，比如：<code>C:\MinGW\</code></li>
+<li>添加系统变量，即Path中增加一个路径，是刚下载内容中的bin文件夹：<code>C:\MinGW\bin</code></li>
+</ul>
+<h2 id="2-安装VS-code，并配置环境"><a href="#2-安装VS-code，并配置环境" class="headerlink" title="2.安装VS code，并配置环境"></a>2.安装VS code，并配置环境</h2><p>安装VS code略过。配置环境分两部分：</p>
+<ul>
+<li><p><strong>安装插件：C/C++（Microsoft维护的）、Code Runner（右上角的运行小三角）</strong></p>
+</li>
+<li><p><strong>建立工作目录并设置两个json配置文件</strong></p>
+<p>假设你要写C++代码，我们就先建立一个文件夹：<code>C:\vs_cpp\</code>。进去了建立一个<code>.vscode</code>文件夹，然后在<code>.vscode</code>里面建立launch.json和task.json</p>
+</li>
+<li><p><strong>写代码就在<code>.vscode</code>里面写</strong>，也可以在vs_cpp下写</p>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">//launch.json</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: [&#123;</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"(gdb) Launch"</span>, <span class="comment">// 配置名称，将会在启动配置的下拉菜单中显示</span></span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>, <span class="comment">// 配置类型，cppdbg对应cpptools提供的调试功能；可以认为此处只能是cppdbg</span></span><br><span class="line">        <span class="attr">"request"</span>: <span class="string">"launch"</span>, <span class="comment">// 请求配置类型，可以为launch（启动）或attach（附加）</span></span><br><span class="line">        <span class="attr">"program"</span>: <span class="string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>, <span class="comment">// 将要进行调试的程序的路径</span></span><br><span class="line">        <span class="attr">"args"</span>: [], <span class="comment">// 程序调试时传递给程序的命令行参数，一般设为空即可</span></span><br><span class="line">        <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>, <span class="comment">// 设为true时程序将暂停在程序入口处，相当于在main上打断点</span></span><br><span class="line">        <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>, <span class="comment">// 调试程序时的工作目录，此为工作区文件夹；改成$&#123;fileDirname&#125;可变为文件所在目录</span></span><br><span class="line">        <span class="attr">"environment"</span>: [], <span class="comment">// 环境变量</span></span><br><span class="line">        <span class="attr">"externalConsole"</span>: <span class="literal">true</span>, <span class="comment">// 为true时使用单独的cmd窗口，与其它IDE一致；18年10月后设为false可调用VSC内置终端</span></span><br><span class="line">        <span class="attr">"internalConsoleOptions"</span>: <span class="string">"neverOpen"</span>, <span class="comment">// 如果不设为neverOpen，调试时会跳到“调试控制台”选项卡，你应该不需要对gdb手动输命令吧？</span></span><br><span class="line">        <span class="attr">"MIMode"</span>: <span class="string">"gdb"</span>, <span class="comment">// 指定连接的调试器，可以为gdb或lldb。但我没试过lldb</span></span><br><span class="line">        <span class="attr">"miDebuggerPath"</span>: <span class="string">"C:/mingw64/bin/gdb.exe"</span>, <span class="comment">// 调试器路径，Windows下后缀不能省略，Linux下则不要</span></span><br><span class="line">        <span class="attr">"setupCommands"</span>: [</span><br><span class="line">            &#123; <span class="comment">// 模板自带，好像可以更好地显示STL容器的内容，具体作用自行Google</span></span><br><span class="line">                <span class="attr">"description"</span>: <span class="string">"Enable pretty-printing for gdb"</span>,</span><br><span class="line">                <span class="attr">"text"</span>: <span class="string">"-enable-pretty-printing"</span>,</span><br><span class="line">                <span class="attr">"ignoreFailures"</span>: <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">"preLaunchTask"</span>: <span class="string">"Compile"</span> <span class="comment">// 调试会话开始前执行的任务，一般为编译程序。与tasks.json的label相对应</span></span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//task.json</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="attr">"tasks"</span>: [&#123;</span><br><span class="line">        <span class="attr">"label"</span>: <span class="string">"Compile"</span>, <span class="comment">// 任务名称，与launch.json的preLaunchTask相对应</span></span><br><span class="line">        <span class="attr">"command"</span>: <span class="string">"g++"</span>,   <span class="comment">// 要使用的编译器，C++用g++</span></span><br><span class="line">        <span class="attr">"args"</span>: [</span><br><span class="line">            <span class="string">"$&#123;file&#125;"</span>,</span><br><span class="line">            <span class="string">"-o"</span>,    <span class="comment">// 指定输出文件名，不加该参数则默认输出a.exe，Linux下默认a.out</span></span><br><span class="line">            <span class="string">"$&#123;fileDirname&#125;/$&#123;fileBasenameNoExtension&#125;.exe"</span>,</span><br><span class="line">            <span class="string">"-g"</span>,    <span class="comment">// 生成和调试有关的信息</span></span><br><span class="line">            <span class="string">"-Wall"</span>, <span class="comment">// 开启额外警告</span></span><br><span class="line">            <span class="string">"-static-libgcc"</span>,     <span class="comment">// 静态链接libgcc，一般都会加上</span></span><br><span class="line">            <span class="string">"-fexec-charset=GBK"</span>, <span class="comment">// 生成的程序使用GBK编码，不加这一条会导致Win下输出中文乱码</span></span><br><span class="line">            <span class="string">"-std=c11"</span>, <span class="comment">// C++最新标准为c++17，或根据自己的需要进行修改</span></span><br><span class="line">        ], <span class="comment">// 编译的命令，其实相当于VSC帮你在终端中输了这些东西</span></span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"process"</span>, <span class="comment">// process是vsc把预定义变量和转义解析后直接全部传给command；shell相当于先打开shell再输入命令，所以args还会经过shell再解析一遍</span></span><br><span class="line">        <span class="attr">"group"</span>: &#123;</span><br><span class="line">            <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">            <span class="attr">"isDefault"</span>: <span class="literal">true</span> <span class="comment">// 不为true时ctrl shift B就要手动选择了</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"presentation"</span>: &#123;</span><br><span class="line">            <span class="attr">"echo"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">"reveal"</span>: <span class="string">"always"</span>, <span class="comment">// 执行任务时是否跳转到终端面板，可以为always，silent，never。具体参见VSC的文档</span></span><br><span class="line">            <span class="attr">"focus"</span>: <span class="literal">false</span>,     <span class="comment">// 设为true后可以使执行task时焦点聚集在终端，但对编译C/C++来说，设为true没有意义</span></span><br><span class="line">            <span class="attr">"panel"</span>: <span class="string">"shared"</span>   <span class="comment">// 不同的文件的编译信息共享一个终端面板</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// "problemMatcher":"$gcc" // 此选项可以捕捉编译时终端里的报错信息；但因为有Lint，再开这个可能有双重报错</span></span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>备注：<code>&quot;miDebuggerPath&quot;: &quot;C:/mingw64/bin/gdb.exe&quot;</code>要改成你自己的路径</p>
+<h1 id="VS-code-with-macOS"><a href="#VS-code-with-macOS" class="headerlink" title="VS code with macOS"></a>VS code with macOS</h1><p>假设你已经装过了Xcode</p>
+<p>步骤很简单，如下：</p>
+<ul>
+<li><p>安装两个插件：C/C++，code runner</p>
+</li>
+<li><p>新建一个文件夹A,在里面新建<code>.vscode</code>,然后进去新建两个json文件!</p>
+<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/%E6%88%AA%E5%B1%8F2020-07-05%20%E4%B8%8B%E5%8D%887.20.38.png" alt="截屏2020-07-05 下午7.20.38"></p>
+</li>
+</ul>
+<p>json文件如下：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">//launch.json</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="attr">"configurations"</span>: </span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"name"</span>: <span class="string">"(11db) Launch"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"cppdbg"</span>,</span><br><span class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceRoot&#125;/a.out"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"stopAtEntry"</span>: <span class="literal">false</span>,</span><br><span class="line">            <span class="attr">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">            <span class="attr">"environment"</span>: [],</span><br><span class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">"MIMode"</span>: <span class="string">"lldb"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// "compounds": []</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//tasks.json</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"2.0.0"</span>,</span><br><span class="line">    <span class="attr">"tasks"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="attr">"label"</span>: <span class="string">"My Task"</span>,</span><br><span class="line">            <span class="attr">"command"</span>: <span class="string">"g++"</span>,</span><br><span class="line">            <span class="attr">"type"</span>: <span class="string">"shell"</span>,</span><br><span class="line">            <span class="attr">"args"</span>: [],</span><br><span class="line">            <span class="attr">"problemMatcher"</span>: [</span><br><span class="line">                <span class="string">"$tsc"</span></span><br><span class="line">            ],</span><br><span class="line">            <span class="attr">"presentation"</span>: &#123;</span><br><span class="line">                <span class="attr">"reveal"</span>: <span class="string">"always"</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="attr">"group"</span>: </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">"kind"</span>: <span class="string">"build"</span>,</span><br><span class="line">                <span class="attr">"isDefault"</span>: <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>备注：无需更改，task.json中command如果是c语言，就是gcc</p>
+]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>VS code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>about</title>
+    <url>/about/index.html</url>
+    <content><![CDATA[<p>统信在职</p>
+<p>江科大毕业</p>
+<p>1996年出生</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>categories</title>
+    <url>/categories/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>tags</title>
+    <url>/tags/index.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+</search>
