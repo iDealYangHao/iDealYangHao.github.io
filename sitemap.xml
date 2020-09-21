@@ -2,58 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://idealyanghao.github.io/categories/index.html</loc>
-    
-    <lastmod>2020-07-25T15:58:25.438Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://idealyanghao.github.io/tags/index.html</loc>
-    
-    <lastmod>2020-07-25T15:58:25.438Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://idealyanghao.github.io/2020/07/06/File-Compression/</loc>
-    
-    <lastmod>2020-07-25T15:58:25.422Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://idealyanghao.github.io/2020/07/01/Git/</loc>
-    
-    <lastmod>2020-07-25T15:58:25.422Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://idealyanghao.github.io/2020/06/02/How-is-my-blog-set-up/</loc>
-    
-    <lastmod>2020-07-25T15:58:25.422Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://idealyanghao.github.io/2020/06/20/OpenCV-Qt-On-MacOS/</loc>
-    
-    <lastmod>2020-07-25T15:58:25.422Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://idealyanghao.github.io/2020/07/05/VS-code-with-C-C/</loc>
     
-    <lastmod>2020-07-25T15:58:25.422Z</lastmod>
+    <lastmod>2020-09-21T06:46:23.818Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://idealyanghao.github.io/about/index.html</loc>
     
-    <lastmod>2020-07-25T15:58:25.422Z</lastmod>
+    <lastmod>2020-09-21T06:46:23.818Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://idealyanghao.github.io/categories/index.html</loc>
+    
+    <lastmod>2020-09-21T06:46:23.818Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://idealyanghao.github.io/tags/index.html</loc>
+    
+    <lastmod>2020-09-21T06:46:23.818Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://idealyanghao.github.io/2020/07/06/File-Compression/</loc>
+    
+    <lastmod>2020-09-21T06:46:23.802Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://idealyanghao.github.io/2020/07/01/Git/</loc>
+    
+    <lastmod>2020-09-21T06:46:23.802Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://idealyanghao.github.io/2020/06/02/How-is-my-blog-set-up/</loc>
+    
+    <lastmod>2020-09-21T06:46:23.802Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://idealyanghao.github.io/2020/06/20/OpenCV-Qt-On-MacOS/</loc>
+    
+    <lastmod>2020-09-21T06:46:23.802Z</lastmod>
     
   </url>
   
