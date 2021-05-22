@@ -73,6 +73,9 @@
     <url>/2020/06/02/How-is-my-blog-set-up/</url>
     <content><![CDATA[<h1 id="源码与静态网页分离"><a href="#源码与静态网页分离" class="headerlink" title="源码与静态网页分离"></a>源码与静态网页分离</h1><p>​    我采用的是<a href="https://ci.appveyor.com/login" target="_blank" rel="noopener">appveyor</a>,使用github登陆，教程如下：</p>
 <h1 id="Some-Tips"><a href="#Some-Tips" class="headerlink" title="Some Tips"></a>Some Tips</h1><p>1.Open Typora directly.Click <a href="https://www.dazhuanlan.com/2020/03/06/5e617a0666d9a/" target="_blank" rel="noopener">here</a> to look over the tutorial</p>
+<ol start="2">
+<li>gihub的token要在appveyor上加密一下，才可以使用，为了你的安全着想</li>
+</ol>
 ]]></content>
       <tags>
         <tag>Tutorial</tag>
