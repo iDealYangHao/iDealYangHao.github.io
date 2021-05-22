@@ -20,15 +20,23 @@
     var CONFIG = {"hostname":"idealyanghao.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="YangHao">
-<meta property="og:url" content="https://idealyanghao.github.io/tags/macOS/index.html">
+  <meta name="description" content="BasicLayoutsQt一共有四种layout，分别是QBoxLayout、QFormLayout、QGridLayout和QStackedLayout.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt learning 1 : layouts">
+<meta property="og:url" content="https://idealyanghao.github.io/2021/05/22/Qt-learning-1-layouts/index.html">
 <meta property="og:site_name" content="YangHao">
+<meta property="og:description" content="BasicLayoutsQt一共有四种layout，分别是QBoxLayout、QFormLayout、QGridLayout和QStackedLayout.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522215333.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522225847.png">
+<meta property="article:published_time" content="2021-05-22T23:18:54.000Z">
+<meta property="article:modified_time" content="2021-05-22T15:27:53.261Z">
 <meta property="article:author" content="YangHao">
+<meta property="article:tag" content="Qt learning">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522215333.png">
 
-<link rel="canonical" href="https://idealyanghao.github.io/tags/macOS/">
+<link rel="canonical" href="https://idealyanghao.github.io/2021/05/22/Qt-learning-1-layouts/">
 
 
 <script id="page-configurations">
@@ -36,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Tag: macOS | YangHao</title>
+  <title>Qt learning 1 : layouts | YangHao</title>
   
 
 
@@ -182,71 +190,94 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">macOS
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://idealyanghao.github.io/2021/05/22/Qt-learning-1-layouts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="YangHao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangHao">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Qt learning 1 : layouts
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-05-22 23:18:54 / Modified: 15:27:53" itemprop="dateCreated datePublished" datetime="2021-05-22T23:18:54+00:00">2021-05-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
+        <h1 id="BasicLayouts"><a href="#BasicLayouts" class="headerlink" title="BasicLayouts"></a>BasicLayouts</h1><p>Qt一共有四种layout，分别是QBoxLayout、QFormLayout、QGridLayout和QStackedLayout.</p>
+<a id="more"></a>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-05T16:59:01+00:00"
-              content="2020-07-05">
-          07-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/05/VS-code-with-C-C/" itemprop="url">
-            <span itemprop="name">VS code with C/C++</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-20T20:42:31+00:00"
-              content="2020-06-20">
-          06-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/06/20/OpenCV-Qt-On-MacOS/" itemprop="url">
-            <span itemprop="name">OpenCV & Qt On MacOS</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+<h2 id="QBoxLayout"><a href="#QBoxLayout" class="headerlink" title="QBoxLayout"></a>QBoxLayout</h2><p>QBoxLayout是QHBoxLayout、QVBoxLayout的基类，分别是水平和竖直方向的。</p>
+<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522215333.png" alt="截屏2021-05-22 下午9.33.41"></p>
+<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522225847.png" alt="截屏2021-05-22 下午10.58.36"></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Qt-learning/" rel="tag"># Qt learning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/05/VS-code-with-C-C/" rel="prev" title="VS code with C/C++">
+      <i class="fa fa-chevron-left"></i> VS code with C/C++
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -299,6 +330,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BasicLayouts"><span class="nav-number">1.</span> <span class="nav-text">BasicLayouts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#QBoxLayout"><span class="nav-number">1.1.</span> <span class="nav-text">QBoxLayout</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
