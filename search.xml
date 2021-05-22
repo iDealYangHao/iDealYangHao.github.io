@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>File Compression</title>
+    <url>/2020/07/06/File-Compression/</url>
+    <content><![CDATA[<blockquote>
+<p>由于项目需要，我要将一个项目打包成deb文件，这是一种Linux下的安装包，deb包里有两个压缩文件，格式是<code>.tar.xz</code>,这是经过双重压缩的文件，本文主要讲压缩方法，附带讲Qt调用Terminal。</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="Qt调用Terminal"><a href="#Qt调用Terminal" class="headerlink" title="Qt调用Terminal"></a>Qt调用Terminal</h1><p>Qt中有个类：QProcess，很明显它是一个进程类，事实上Qt是新开了一个进程来进行bash操作，用法如下：</p>
+<ul>
+<li>运行一条命令</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">QProcess p;</span><br><span class="line">p.execute(<span class="string">"ls -al"</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行很多条命令，即shell脚本</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">QProcess p;</span><br><span class="line">p.execute(<span class="string">"bash"</span>,QStringList()&lt;&lt;<span class="string">"-c"</span>&lt;&lt;<span class="string">"/xxx/xxx.sh"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>备注：p.execute和p.start的区别不在此赘述</p>
+<h1 id="command-line压缩文件"><a href="#command-line压缩文件" class="headerlink" title="command line压缩文件"></a>command line压缩文件</h1><ol>
+<li><p>先说压缩命令的格式: tar  -[参数]  xx.tar /xxx/xxx/xxx.txt</p>
+<ol>
+<li>tar是Ｌinux／Ｕnix下的一个命令，可以用 man tar　查看</li>
+<li>参数是有很多的,常用的有x c v f等,x代表解压,c代表创建新压缩包,f表示文件名,v表示显示详细过程</li>
+<li>xx.tar表示你要压缩成什么名字</li>
+<li>/xxx/xxx/xxx.txt代表你想压缩的东西，可以是文件，也可以是文件夹</li>
+<li>示例：ar -vcf yanghao.tar /home/yanghao/Desktop/test</li>
+<li>两个注意点：<ol>
+<li>f参数是必须的，且放在参数的最后一位</li>
+<li>如果你的压缩名字指定了路径：/home/yanghao/yh.tar 那这个包再被解压的时候，就包含了/home/yanghao这个路径．所以建议在当前路径压缩</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>然后xz yanghao.tar,就得到了 yanghao.tar.xz</p>
+</li>
+<li><p>解压：tar -xf yanghao.tar.xz就直接解压了两层；</p>
+<p>如果你只想解压到tar这一层，那可以用xz -d yangaho.tar.xz，就生成了yanghao.tar</p>
+</li>
+<li><p>其他压缩命令，待续…</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Qt</category>
+      </categories>
+      <tags>
+        <tag>Qt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git</title>
     <url>/2020/07/01/Git/</url>
     <content><![CDATA[<h2 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h2><p>​        假设一个项目有两个分支，一个是master，一个是dev，你在dev分支上正在开发一个新功能，但是这时候，有人已经在master分支上又有了新的提交，于是你的dev就落后了master一个commit，当你想把dev代码合到master时，需要这样做：</p>
@@ -61,23 +112,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Qt learning 1 : layouts</title>
-    <url>/2021/05/22/Qt-learning-1-layouts/</url>
-    <content><![CDATA[<h1 id="BasicLayouts"><a href="#BasicLayouts" class="headerlink" title="BasicLayouts"></a>BasicLayouts</h1><p>Qt一共有四种layout，分别是QBoxLayout、QFormLayout、QGridLayout和QStackedLayout.</p>
-<a id="more"></a>
-
-<h2 id="QBoxLayout"><a href="#QBoxLayout" class="headerlink" title="QBoxLayout"></a>QBoxLayout</h2><p>QBoxLayout是QHBoxLayout、QVBoxLayout的基类，分别是水平和竖直方向的。</p>
-<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522215333.png" alt="截屏2021-05-22 下午9.33.41"></p>
-<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522225847.png" alt="截屏2021-05-22 下午10.58.36"></p>
-]]></content>
-      <categories>
-        <category>Qt</category>
-      </categories>
-      <tags>
-        <tag>Qt learning</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VS code with C/C++</title>
     <url>/2020/07/05/VS-code-with-C-C/</url>
     <content><![CDATA[<blockquote>
@@ -124,6 +158,23 @@
       <tags>
         <tag>macOS</tag>
         <tag>VS code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Qt learning 1 : layouts</title>
+    <url>/2021/05/22/Qt-learning-1-layouts/</url>
+    <content><![CDATA[<h1 id="BasicLayouts"><a href="#BasicLayouts" class="headerlink" title="BasicLayouts"></a>BasicLayouts</h1><p>Qt一共有四种layout，分别是QBoxLayout、QFormLayout、QGridLayout和QStackedLayout.</p>
+<a id="more"></a>
+
+<h2 id="QBoxLayout"><a href="#QBoxLayout" class="headerlink" title="QBoxLayout"></a>QBoxLayout</h2><p>QBoxLayout是QHBoxLayout、QVBoxLayout的基类，分别是水平和竖直方向的。</p>
+<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522215333.png" alt="截屏2021-05-22 下午9.33.41"></p>
+<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522225847.png" alt="截屏2021-05-22 下午10.58.36"></p>
+]]></content>
+      <categories>
+        <category>Qt</category>
+      </categories>
+      <tags>
+        <tag>Qt learning</tag>
       </tags>
   </entry>
   <entry>

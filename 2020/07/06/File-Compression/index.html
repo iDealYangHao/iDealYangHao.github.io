@@ -20,15 +20,20 @@
     var CONFIG = {"hostname":"idealyanghao.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="YangHao">
-<meta property="og:url" content="https://idealyanghao.github.io/tags/macOS/index.html">
+  <meta name="description" content="由于项目需要，我要将一个项目打包成deb文件，这是一种Linux下的安装包，deb包里有两个压缩文件，格式是.tar.xz,这是经过双重压缩的文件，本文主要讲压缩方法，附带讲Qt调用Terminal。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="File Compression">
+<meta property="og:url" content="https://idealyanghao.github.io/2020/07/06/File-Compression/index.html">
 <meta property="og:site_name" content="YangHao">
+<meta property="og:description" content="由于项目需要，我要将一个项目打包成deb文件，这是一种Linux下的安装包，deb包里有两个压缩文件，格式是.tar.xz,这是经过双重压缩的文件，本文主要讲压缩方法，附带讲Qt调用Terminal。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-06T21:15:32.000Z">
+<meta property="article:modified_time" content="2021-05-22T15:35:46.766Z">
 <meta property="article:author" content="YangHao">
+<meta property="article:tag" content="Qt">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://idealyanghao.github.io/tags/macOS/">
+<link rel="canonical" href="https://idealyanghao.github.io/2020/07/06/File-Compression/">
 
 
 <script id="page-configurations">
@@ -36,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Tag: macOS | YangHao</title>
+  <title>File Compression | YangHao</title>
   
 
 
@@ -182,71 +187,137 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">macOS
-          <small>Tag</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://idealyanghao.github.io/2020/07/06/File-Compression/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="YangHao">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YangHao">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          File Compression
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-06 21:15:32" itemprop="dateCreated datePublished" datetime="2020-07-06T21:15:32+00:00">2020-07-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-22 15:35:46" itemprop="dateModified" datetime="2021-05-22T15:35:46+00:00">2021-05-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
+        <blockquote>
+<p>由于项目需要，我要将一个项目打包成deb文件，这是一种Linux下的安装包，deb包里有两个压缩文件，格式是<code>.tar.xz</code>,这是经过双重压缩的文件，本文主要讲压缩方法，附带讲Qt调用Terminal。</p>
+</blockquote>
+<a id="more"></a>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h1 id="Qt调用Terminal"><a href="#Qt调用Terminal" class="headerlink" title="Qt调用Terminal"></a>Qt调用Terminal</h1><p>Qt中有个类：QProcess，很明显它是一个进程类，事实上Qt是新开了一个进程来进行bash操作，用法如下：</p>
+<ul>
+<li>运行一条命令</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QProcess p;</span><br><span class="line">p.execute(<span class="string">"ls -al"</span>);</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-05T16:59:01+00:00"
-              content="2020-07-05">
-          07-05
-        </time>
-      </div>
+<ul>
+<li>运行很多条命令，即shell脚本</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QProcess p;</span><br><span class="line">p.execute(<span class="string">"bash"</span>,QStringList()&lt;&lt;<span class="string">"-c"</span>&lt;&lt;<span class="string">"/xxx/xxx.sh"</span>)</span><br></pre></td></tr></table></figure>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/05/VS-code-with-C-C/" itemprop="url">
-            <span itemprop="name">VS code with C/C++</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-06-20T20:42:31+00:00"
-              content="2020-06-20">
-          06-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/06/20/OpenCV-Qt-On-MacOS/" itemprop="url">
-            <span itemprop="name">OpenCV & Qt On MacOS</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+<p>备注：p.execute和p.start的区别不在此赘述</p>
+<h1 id="command-line压缩文件"><a href="#command-line压缩文件" class="headerlink" title="command line压缩文件"></a>command line压缩文件</h1><ol>
+<li><p>先说压缩命令的格式: tar  -[参数]  xx.tar /xxx/xxx/xxx.txt</p>
+<ol>
+<li>tar是Ｌinux／Ｕnix下的一个命令，可以用 man tar　查看</li>
+<li>参数是有很多的,常用的有x c v f等,x代表解压,c代表创建新压缩包,f表示文件名,v表示显示详细过程</li>
+<li>xx.tar表示你要压缩成什么名字</li>
+<li>/xxx/xxx/xxx.txt代表你想压缩的东西，可以是文件，也可以是文件夹</li>
+<li>示例：ar -vcf yanghao.tar /home/yanghao/Desktop/test</li>
+<li>两个注意点：<ol>
+<li>f参数是必须的，且放在参数的最后一位</li>
+<li>如果你的压缩名字指定了路径：/home/yanghao/yh.tar 那这个包再被解压的时候，就包含了/home/yanghao这个路径．所以建议在当前路径压缩</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>然后xz yanghao.tar,就得到了 yanghao.tar.xz</p>
+</li>
+<li><p>解压：tar -xf yanghao.tar.xz就直接解压了两层；</p>
+<p>如果你只想解压到tar这一层，那可以用xz -d yangaho.tar.xz，就生成了yanghao.tar</p>
+</li>
+<li><p>其他压缩命令，待续…</p>
+</li>
+</ol>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Qt/" rel="tag"># Qt</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/05/VS-code-with-C-C/" rel="prev" title="VS code with C/C++">
+      <i class="fa fa-chevron-left"></i> VS code with C/C++
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/22/Qt-learning-1-layouts/" rel="next" title="Qt learning 1 : layouts">
+      Qt learning 1 : layouts <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -299,6 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Qt调用Terminal"><span class="nav-number">1.</span> <span class="nav-text">Qt调用Terminal</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#command-line压缩文件"><span class="nav-number">2.</span> <span class="nav-text">command line压缩文件</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
